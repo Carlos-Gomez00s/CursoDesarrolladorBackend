@@ -1,24 +1,32 @@
-// Desarrolla un algoritmo que permita mostrar el imc
-// de una persona, utilizando un metodo mostrar la respuesta
-// segun los datos que solicita la formula
 
-class Imc
+let personas = 
+[
+    {
+        nombre: "Carlos",
+        edad: 33,
+        ciudad: "Santa Ana"
+    },
+    {
+        nombre: "Fernando",
+        edad: 35,
+        ciudad: "Santa Ana"
+    },
+    {
+        nombre: "Boris",
+        edad: 50,
+        ciudad: "San Salvador"
+    },
+    {
+        nombre: "Douglas",
+        edad: 25,
+        ciudad: "Santa Tecla"
+    },
+];
+
+function filtrarPersonas(arrayPersonas, ciudad)
 {
-    constructor(peso, altura)
-    {
-        this.Peso = peso;
-        this.Altura = altura;
-    }
-
-    Mostrar()
-    {
-        const imc = this.Peso/(Math.pow(this.Altura, 2));
-        console.log(`El imc de la persona es: ${imc}.`);
-    }
+    return arrayPersonas.filter(persona => persona.edad > 30 && persona.ciudad == ciudad);
 }
-
-var persona1 = new Imc(75, 1.77);
-var persona2 = new Imc(80, 1.73);
-
-persona1.Mostrar();
-persona2.Mostrar();
+let ciudad = "Santa Ana";
+let personasFiltradas = filtrarPersonas(personas, ciudad);
+console.log(personasFiltradas);

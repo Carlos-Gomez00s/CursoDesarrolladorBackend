@@ -1,46 +1,25 @@
-// Muestre en una terminal los comportamientos de un bebe como 
-// - Llorar
-// - Dormir
-// - Comer
-// Los comportamientos deben de incluir solo un mensaj con los atributos correspondientes
-// para el bebe (antonio, de 3 meses, sonia de 5 mese y javier de 8 meses)
 
-class Bebe
+function contadorPalabras(array)
 {
-    constructor(nombre, edad)
-    {
-        this.Nombre = nombre;
-        this.Edad = edad;
-    }
+    let contadorPalabras = {};
 
-    Llorar()
-    {
-        console.log(`El bebe ${this.Nombre} de ${this.Edad} meses esta llorando.`);
-    }
+    array.forEach(frase => {
+        const palabras = frase.split(' ');
+        palabras.forEach(palabra => {
+            if(contadorPalabras[palabra])
+            {
+                contadorPalabras[palabra]++;
+            }
+            else
+            {
+                contadorPalabras[palabra] = 1;
+            }
+        });
+    });
 
-    Dormir()
-    {
-        console.log(`El bebe ${this.Nombre} esta durmiendo.`);
-    }
-
-    Comer()
-    {
-        console.log(`El bebe ${this.Nombre} esta comiendo.`);
-    }
+    return contadorPalabras;
 }
 
-var bebe1 = new Bebe("Antonio", 3);
-var bebe2 = new Bebe("Sonia", 5);
-var bebe3 = new Bebe("Javier", 8);
+let arrayFrases = ["Hola buenos dias", "Hola buenas tardes", "Hola buenas noches"];
 
-bebe1.Llorar();
-bebe1.Dormir();
-bebe1.Comer();
-
-bebe2.Llorar();
-bebe2.Dormir();
-bebe2.Comer();
-
-bebe3.Llorar();
-bebe3.Dormir();
-bebe3.Comer();
+console.log(contadorPalabras(arrayFrases));
