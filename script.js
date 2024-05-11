@@ -7,3 +7,4 @@ let Persona =
 };
 
 console.log(`Hola ${Persona['nombre']} ${Persona['apellido']} tienes ${Persona['edad']} años.`);
+
