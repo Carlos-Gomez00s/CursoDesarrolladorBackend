@@ -1,4 +1,12 @@
 
+const readline = require('readline');
+
+const rl = readline.createInterface
+({
+    input : process.stdin,
+    output : process.stdout
+});
+
 function MayorDeTres(numero1, numero2, numero3)
 {
     if(numero1 > numero2 && numero1 > numero3)
@@ -14,15 +22,6 @@ function MayorDeTres(numero1, numero2, numero3)
         return `El numero ${numero3} es mayor.`;
     }
 }
-
-const readline = require('readline');
-
-const rl = readline.createInterface
-({
-    input : process.stdin,
-    output : process.stdout
-});
-
 
 rl.question("Ingrese el primer numero: ", (numero1) => 
 {

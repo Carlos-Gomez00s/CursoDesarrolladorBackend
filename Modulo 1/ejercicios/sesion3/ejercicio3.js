@@ -1,4 +1,12 @@
 
+const readline = require('readline');
+
+const rl = readline.createInterface
+({
+    input : process.stdin,
+    output : process.stdout
+});
+
 function Factorial(numero)
 {
     let resultado = 1;
@@ -9,14 +17,6 @@ function Factorial(numero)
 
     return resultado;
 }
-
-const readline = require('readline');
-
-const rl = readline.createInterface
-({
-    input : process.stdin,
-    output : process.stdout
-});
 
 rl.question("Ingrese un numero: ", (numero) => 
 {
