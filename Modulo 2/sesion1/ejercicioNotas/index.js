@@ -2,7 +2,94 @@ import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { agregarNotas, eliminarNotas, listarNotas, leerNotas, editarNota } from './utiles/notas.js'
 
-yargs(hideBin(process.argv))
+
+import readline from 'readline';
+const rl = readline.createInterface
+({
+    input: process.stdin,
+    output: process.stdout
+});
+
+/* const repetirMetodos = (n) => {
+    if (n <= 0) {
+        return;
+    }
+
+    // Llama los métodos que quieres repetir
+    agregarNotas(`Nota ${n}`, `Cuerpo de la nota ${n}`);
+    eliminarNotas(`Nota ${n}`);
+    listarNotas();
+    leerNotas(`Nota ${n}`);
+    editarNota(`Nota ${n}`, `Nuevo cuerpo de la nota ${n}`);
+
+    // Llama recursivamente la función para repetir los métodos
+    repetirMetodos(n - 1);
+};
+
+// Ejemplo de uso: Repetir los métodos 5 veces
+repetirMetodos(5); */
+
+function Menu()
+{
+    console.log("Menu interactivo");
+    console.log("1. Agregar nota");
+    console.log("2. Eliminar nota");
+    console.log("3. Listar nota");
+    console.log("4. Ver nota");
+    console.log("5. Editar nota");
+    console.log("6. Salir");
+}
+
+function Iniciar()
+{
+    Menu();
+    rl.question("Ingrese un numero: ", opcion =>
+    {
+        switch(parseInt(opcion))
+        {
+            case 1:
+                rl.question("Ingrese el tituli de la nota: ", title => 
+                {
+                    rl.question("Ingrese el cuerpo de la nota: ", body => 
+                    {
+                        agregarNotas(title, body);
+                        Iniciar();
+                    });
+                });
+                break;
+            case 2:
+                rl.question("Ingrese el tituli de la nota: ", title => 
+                {
+                    eliminarNotas(title);
+                    Iniciar();
+                });
+                break;
+            case 3:
+                listarNotas();
+                Iniciar();
+                break;
+            case 5:
+                rl.question("Ingrese el tituli de la nota: ", title => 
+                {
+                    rl.question("Ingrese el cuerpo de la nota: ", body => 
+                    {
+                        editarNota(title, body);
+                        Iniciar();
+                    });
+                });
+                break;
+            case 6:
+                rl.close();
+                console.log("Saliendo...");
+                break;
+
+        }
+    });
+}
+
+Iniciar();
+
+/* yargs(hideBin(process.argv))
     .command
     ({
         command: 'agregar',
@@ -85,4 +172,4 @@ yargs(hideBin(process.argv))
         {
             editarNota(argv.title, argv.body);
         }
-    }).parse();
+    }).parse(); */

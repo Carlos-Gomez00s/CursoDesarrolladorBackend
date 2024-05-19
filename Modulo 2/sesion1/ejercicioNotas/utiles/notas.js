@@ -37,7 +37,7 @@ const agregarNotas = (title, body) =>
         });
 
         guardarNotas(notas);
-        console.log("Nota agregada");
+        console.log(chalk.green.inverse("Nota agregada"));
     }
     else
     {
